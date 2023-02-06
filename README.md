@@ -1,6 +1,6 @@
 # Week 14
 
-CI and CD
+CI and
 
 ## Project structure
 
