@@ -3,12 +3,12 @@ run-name: Build Tests (${{ github.actor }})
 on: [push]
 jobs:
   security-check:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v3
-    - name: NPM audit
-    working-directory: combined
-    run: npm audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: NPM audit
+      working-directory: combined
+      run: npm audit
   run-lint:
     runs-on: ubuntu-latest
     steps:
@@ -16,8 +16,8 @@ jobs:
       - name: Run ESLint
       working-directory: combined
       run: |
-        npm install
-        npm run lint
+          npm install
+          npm run lint
   unit-test:
     runs-on: ubuntu-latest
     steps:
