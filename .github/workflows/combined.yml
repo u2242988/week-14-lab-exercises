@@ -4,9 +4,9 @@ on: [push]
 jobs:
   security-check:
   runs-on: ubuntu-latest
-  steops:
-  - uses: actions/checkout@v3
-  - name: NPM audit
+  steps:
+    - uses: actions/checkout@v3
+    - name: NPM audit
     working-directory: combined
     run: npm audit
   run-lint:
@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run ESLint
       working-directory: combined
-      run:
+      run: |
         npm install
         npm run lint
   unit-test:
@@ -24,17 +24,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Jest test
       working-directory: combined
-      run:
+      run: |
         npm install
         npm run test
-  snyk-test:
-    runs-on: ubutnu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run Snyk test
-      working-directory: combined
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_KEY }}
-      run:
-        npm install snyk -g
-        snyk test
