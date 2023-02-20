@@ -25,5 +25,5 @@ jobs:
       - name: Jest test
         working-directory: combined
         run: |
-        npm install
-        npm run test
+          npm install
+          npm run test
